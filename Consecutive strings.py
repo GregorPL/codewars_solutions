@@ -5,18 +5,18 @@ def longest_consec(strarr, k):
     words = []
     
     if k > 0 and len(strarr) >= k:
-        n = k if k == 1 else (k - 1)
+        if k == 1:
+            for i in range(len(strarr)):
+                words.append("".join(strarr[i]))
+        else:
 
-        for i in range(len(strarr[:n])):
-            if len(strarr[i]) > 0:
-                words.append("".join(strarr[i:i+k]))
+            for i in range(len(strarr[:-(k-1)])):
+                if len(strarr[i]) > 0:
+                    words.append("".join(strarr[i:i+k]))
     
         return max(words, key=lambda s: len(s))
     
     else:
         return ""
-
-
-strarr = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"]
 
 print(longest_consec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1))
