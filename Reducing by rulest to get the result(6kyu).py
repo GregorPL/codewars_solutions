@@ -16,6 +16,3 @@ def reduce_by_rules(lst, rules):
     return lst[0]
 
 print(reduce_by_rules([2.0, 2.0, 3.0, 4.0], [lambda a, b: a + b, lambda a, b: a - b]))
-
-for x in cycle(list(range(0, 10))):
-    print(x)
